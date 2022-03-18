@@ -4,8 +4,6 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
@@ -18,10 +16,20 @@ namespace DataAccessLayer.Repositories
             _context.SaveChanges();
         }
 
+        public void Delete(Category item)
+        {
+            throw new NotImplementedException();
+        }
+
         public void DeleteCategory(Category category)
         {
             _context.Remove(category);
             _context.SaveChanges();
+        }
+
+        public List<Category> GetAll()
+        {
+            throw new NotImplementedException();
         }
 
         public Category GetById(int id)
@@ -29,9 +37,19 @@ namespace DataAccessLayer.Repositories
             return _context.Categories.Find(id);
         }
 
+        public void Insert(Category item)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Category> ListAllCategory()
         {
             return _context.Categories.ToList();
+        }
+
+        public void Update(Category item)
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateCategory(Category category)

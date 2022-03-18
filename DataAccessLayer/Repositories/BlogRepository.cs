@@ -4,8 +4,6 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
@@ -18,11 +16,21 @@ namespace DataAccessLayer.Repositories
             _context.SaveChanges();
         }
 
+        public void Delete(Blog item)
+        {
+            throw new NotImplementedException();
+        }
+
         public void DeleteBlog(Blog blog)
         {
             using var _context = new Context();
             _context.Remove(blog);
             _context.SaveChanges();
+        }
+
+        public List<Blog> GetAll()
+        {
+            throw new NotImplementedException();
         }
 
         public Blog GetById(int id)
@@ -31,10 +39,20 @@ namespace DataAccessLayer.Repositories
             return _context.Blogs.Find(id);
         }
 
+        public void Insert(Blog item)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Blog> ListAllBlog()
         {
             using var _context = new Context();
             return _context.Blogs.ToList();
+        }
+
+        public void Update(Blog item)
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateBlog(Blog blog)
