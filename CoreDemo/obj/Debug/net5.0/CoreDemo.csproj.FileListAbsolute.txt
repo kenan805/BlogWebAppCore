@@ -151,3 +151,8 @@ C:\Users\user\source\repos\CoreDemo\CoreDemo\bin\Debug\net5.0\runtimes\win-arm\l
 C:\Users\user\source\repos\CoreDemo\CoreDemo\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\user\source\repos\CoreDemo\CoreDemo\bin\Debug\net5.0\libman.json
 C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Category\Index.cshtml.g.cs
+C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Shared\UserLayout.cshtml.g.cs
+C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Blog\Index.cshtml.g.cs
+C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Shared\Partial2.cshtml.g.cs
+C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Shared\Partial1.cshtml.g.cs
+C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Shared\Partial3.cshtml.g.cs
