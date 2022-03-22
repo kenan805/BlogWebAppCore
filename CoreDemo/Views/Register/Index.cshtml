@@ -1,0 +1,79 @@
+﻿@model EntityLayer.Concrete.Writer
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<section class="main-content-w3layouts-agileits">
+	<div class="container">
+		<h3 class="tittle">Yazıçı qeydiyyat səhifəsi</h3>
+		<div class="inner-sec">
+			<div class="login p-5 bg-light mx-auto mw-100">
+				@using (Html.BeginForm("Index", "Register", FormMethod.Post))
+				{
+
+					<div class="form-row">
+						<div class="col-md-6 mb-3">
+							<label for="validationCustom01">Ad və Soyad</label>
+							@Html.TextBoxFor(x=>x.WriterName)
+							@Html.ValidationMessageFor(x=>x.WriterName)
+							@*<input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+						</div>
+						<div class="col-md-6 mb-3">
+							<label for="validationCustom02">Mail adresi</label>
+							@Html.TextBoxFor(x=>x.WriterMail)
+							@Html.ValidationMessageFor(x=>x.WriterMail)
+							@*<input type="text" class="form-control" id="validationDefault02" name="WriterMail" placeholder="" required="">*@
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="exampleInputPassword1 mb-2">Şifrə</label>
+							@Html.TextBoxFor(x=>x.WriterPassword)
+							@Html.ValidationMessageFor(x=>x.WriterPassword)
+							@*<input type="password" class="form-control" id="password1" name="WriterPassword" placeholder="" required="">*@
+						</div>
+						<div class="form-group col-md-6">
+							<label for="exampleInputPassword2 mb-2">Şifrəni təsdiqləyin</label>
+							<input type="password" class="form-control" id="password2" name="WriterPassword" placeholder="" required="">
+						</div>
+
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="mb-2">Şəhərlər</label>
+							<select class="form-control">
+								@*@foreach (var item in Model)
+									{
+									<option value="asd">@item.CityName</option>
+									}*@
+							</select>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="exampleInputPassword2 mb-2">Şəkilin adresi</label>
+							@Html.TextBoxFor(x=>x.WriterImage)
+							@Html.ValidationMessageFor(x=>x.WriterImage)
+							@*<input type="text" class="form-control" id="imgLocation" name="WriterImage" placeholder="" required="">*@
+						</div>
+
+					</div>
+					<button type="submit" class="btn btn-primary submit mb-4">Qeydiyyatdan keç</button>
+					<p>
+						<a href="#" id="btn1">By clicking Signup, I agree to your terms</a>
+					</p>
+				}
+			</div>
+		</div>
+	</div>
+	<br />
+	<script>
+		$('#btn1').click(function(){
+			swal("1. Məxfilik siyasəti 1.1. Hazırkı məxfilik Siyasəti turbo.az Servisin İstifadəçi Razılaşmasının ayrılmaz hissəsidir. 1.2. Hazırkı məxfilik Siyasəti İstifadəçinin şəxsi məlumatlarının alması, saxlaması, işlənməsi, istifadəsi, açılması və müdafiəsi qaydasını müəyyən edir. 1.3. İstifadəçilərin şəxsi məlumat bazası Administrasiyanın ünvanı üzrə yerləşir. 1.4. Şəxsi məlumatlar Bazasının sərəncamçısı Administrasiyadır – “DİGİTAL CLASSİFİEDS MMC” şirkətidir. 1.5. Elanın dərc edilməsi üçün formanı dolduran zaman və ya Servisdə İstifadəçinin qeydiyyatı zamanı, və ya göndərmələrə abunə yazılma zamanı, həmçinin də Servisdən istifadənin başqa hallarında, İstifadəçi Administrasiyaya məlumatları və şəxsi məlumatları verir. Məlumatın toplanması həmçinin Servisin İstifadəçilərinin sorğularının keçirilməsi yolu ilə həyata keçirilə bilər. İstifadəçilərin sorğularında iştirak İstifadəçilər icazəsi ilə həyata keçirilir. 1.6. İstifadəçi Servisə özü haqqında şəxsi məlumatların və istənilən başqa informasiyanın verilməsi haqqında sərbəst və könüllü qərar qəbul edir, həmçinin də bununla belə şəxsi məlumatların və informasiyanın Administrasiya tərəfindən işlənməsinə, işlənməsi üçün onların Administrasiyanın tapşırığı ilə hərəkət edən başqa İstifadəçilərə və/və ya üçüncü şəxslərə ötürülməsinə öz razılığını bildirir.");
+		});
+	</script>
+</section>
+
