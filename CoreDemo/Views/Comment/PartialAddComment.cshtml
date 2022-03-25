@@ -1,13 +1,11 @@
 ﻿<div class="comment-top">
 	<h4>Rəy yazın</h4>
 	<div class="comment-bottom">
-		<form action="#" method="post">
-			<input class="form-control" type="text" name="Name" placeholder="Ad" required="">
-			<input class="form-control" type="email" name="Email" placeholder="Email" required="">
+		<form asp-action="PartialAddComment" asp-controller="Comment" method="post">
+			<input class="form-control" type="text" name="CommentUserName" placeholder="Ad və soyad" required="">
+			<input class="form-control" type="text" name="CommentTitle" placeholder="Başlıq" required="">
 
-			<input class="form-control" type="text" name="Subject" placeholder="Mövzu" required="">
-
-			<textarea class="form-control" name="Message" placeholder="Mesaj..." required=""></textarea>
+			<textarea class="form-control" name="CommentContent" placeholder="Rəyiniz..." required=""></textarea>
 			<button type="submit" class="btn btn-primary submit">Göndər</button>
 		</form>
 	</div>

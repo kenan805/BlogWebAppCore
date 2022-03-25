@@ -17,6 +17,7 @@ namespace BusinessLayer.ValidationRules
             RuleFor(x => x.WriterPassword).NotEmpty().WithMessage("Şifrə boş olmamalıdır!");
             RuleFor(x => x.WriterName).MinimumLength(2).WithMessage("Ad minimum 2 hərfli olmalıdır!");
             RuleFor(x => x.WriterName).MaximumLength(50).WithMessage("Ad maksimum 50 hərfli ola bilər!");
+            RuleFor(x => x.WriterPassword).Matches(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]").WithMessage("Parolda ən az bir böyük hərf, bir kiçik hərf və rəqəm olmalıdır!");
         }
     }
 }
