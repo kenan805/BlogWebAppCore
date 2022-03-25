@@ -1,6 +1,5 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+	Layout = null;
 }
 
 <!DOCTYPE html>
@@ -10,8 +9,7 @@
 	<title>Weblog a Blogging Category Bootstrap responsive WebTemplate | Blog3 :: w3layouts</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-	<meta name="keywords" content="Weblog a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta name="keywords" content="Weblog a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
 	<script>
 		addEventListener("load", function () {
@@ -27,7 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link href="~/CoreBlogTema/css/style.css" rel='stylesheet' type='text/css' />
 	<link href="~/CoreBlogTema/css/fontawesome-all.css" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
-	    rel="stylesheet">
+		  rel="stylesheet">
 </head>
 
 <body>
@@ -37,8 +35,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="top-bar_sub_w3layouts container-fluid">
 			<div class="row">
 				<div class="col-md-4 logo text-left">
-					<a class="navbar-brand" href="index.html">
-						<i class="fab fa-linode"></i> Weblog</a>
+					<a class="navbar-brand" href="/Writer/Index/">
+						<i class="fab fa-linode"></i> Weblog
+					</a>
 				</div>
 				@await Html.PartialAsync("Partial2")
 				<div class="col-md-4 log-icons text-right">
@@ -72,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		@await Html.PartialAsync("Partial1")
-		
+
 	</header>
 
 	<!--/main-->
@@ -81,7 +80,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--footer-->
 	@await Html.PartialAsync("Partial3")
 	<!---->
-
 	<!-- js -->
 	<script src="~/CoreBlogTema/js/jquery-2.2.3.min.js"></script>
 	<!-- //js -->
@@ -104,11 +102,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		$(document).ready(function () {
 			/*
 									var defaults = {
-							  			containerID: 'toTop', // fading element id
+										containerID: 'toTop', // fading element id
 										containerHoverID: 'toTopHover', // fading element hover id
 										scrollSpeed: 1200,
-										easingType: 'linear' 
-							 		};
+										easingType: 'linear'
+									};
 									*/
 
 			$().UItoTop({
