@@ -20,5 +20,10 @@ namespace CoreDemo.Controllers
             var values = _blogManager.GetBlogsById(id);
             return View(values);
         }
+        public IActionResult BlogListByWriter()
+        {
+            var values = _blogManager.GetBlogListWithWriter(1);
+            return View(values);
+        }
     }
 }

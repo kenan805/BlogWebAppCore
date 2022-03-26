@@ -13,40 +13,13 @@ namespace BusinessLayer.Concrete
     {
         IBlogDal _blogDal;
 
-        public BlogManager(IBlogDal blogDal)
-        {
-            _blogDal = blogDal;
-        }
+        public BlogManager(IBlogDal blogDal) => _blogDal = blogDal;
 
-        public void BlogAdd(Blog blog)
-        {
-            throw new NotImplementedException();
-        }
+        public List<Blog> GetAll() => _blogDal.GetAll();
 
-        public void BlogDelete(Blog blog)
-        {
-            throw new NotImplementedException();
-        }
+        public List<Blog> GetLastThreeBlog() => _blogDal.GetAll().Take(3).ToList();
 
-        public void BlogUpdate(Blog blog)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Blog> GetAll()
-        {
-            return _blogDal.GetAll();
-        }
-
-        public List<Blog> GetLastThreeBlog()
-        {
-            return _blogDal.GetAll().Take(3).ToList();
-        }
-
-        public List<Blog> GetBlogListWithCategory()
-        {
-            return _blogDal.GetListWithCategory();
-        }
+        public List<Blog> GetBlogListWithCategory() => _blogDal.GetListWithCategory();
 
         public Blog GetById(int id)
         {
@@ -57,10 +30,21 @@ namespace BusinessLayer.Concrete
             return _blogDal.GetListAll(x => x.BlogID == id);
         }
 
-        public List<Blog> GetBlogListWithWriter(int id)
-        {
-            return _blogDal.GetListAll(x => x.WriterID == id);
+		public List<Blog> GetBlogListWithWriter(int id) => _blogDal.GetListAll(x => x.WriterID == id);
 
+		public void TAdd(Blog entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TDelete(Blog entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TUpdate(Blog entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

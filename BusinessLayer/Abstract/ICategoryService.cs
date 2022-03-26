@@ -3,12 +3,8 @@ using System.Collections.Generic;
 
 namespace BusinessLayer.Abstract
 {
-    public interface ICategoryService
+    public interface ICategoryService : IGenericService<Category>
     {
-        void CategoryAdd(Category category);
-        void CategoryDelete(Category category);
-        void CategoryUpdate(Category category);
-        List<Category> GetAll();
-        Category GetById(int id);
+
     }
 }

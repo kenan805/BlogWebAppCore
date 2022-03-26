@@ -13,14 +13,16 @@ namespace BusinessLayer.Concrete
     {
         IAboutDal _aboutDal;
 
-        public AboutManager(IAboutDal aboutDal)
-        {
-            _aboutDal = aboutDal;
-        }
+        public AboutManager(IAboutDal aboutDal) => _aboutDal = aboutDal;
 
-        public List<About> GetAll()
-        {
-            return _aboutDal.GetAll();
-        }
+        public List<About> GetAll() => _aboutDal.GetAll();
+
+        public About GetById(int id) => throw new NotImplementedException();
+
+        public void TAdd(About entity) => throw new NotImplementedException();
+
+        public void TDelete(About entity) => throw new NotImplementedException();
+
+        public void TUpdate(About entity) => throw new NotImplementedException();
     }
 }
