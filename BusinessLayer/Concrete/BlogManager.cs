@@ -30,11 +30,11 @@ namespace BusinessLayer.Concrete
             return _blogDal.GetListAll(x => x.BlogID == id);
         }
 
-		public List<Blog> GetBlogListWithWriter(int id) => _blogDal.GetListAll(x => x.WriterID == id);
+        public List<Blog> GetBlogListWithWriter(int id) => _blogDal.GetListAll(x => x.WriterID == id);
 
-		public void TAdd(Blog entity)
+        public void TAdd(Blog entity)
         {
-            throw new NotImplementedException();
+            _blogDal.Insert(entity);
         }
 
         public void TDelete(Blog entity)
