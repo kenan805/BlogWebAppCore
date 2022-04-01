@@ -17,7 +17,7 @@ namespace BusinessLayer.Concrete
 
         public List<About> GetAll() => _aboutDal.GetAll();
 
-        public About GetById(int id) => throw new NotImplementedException();
+        public About TGetById(int id) => throw new NotImplementedException();
 
         public void TAdd(About entity) => throw new NotImplementedException();
 

@@ -13,7 +13,7 @@ namespace BusinessLayer.Concrete
 
         public List<Category> GetAll() => _categoryDal.GetAll();
 
-        public Category GetById(int id) => _categoryDal.GetById(id);
+        public Category TGetById(int id) => _categoryDal.GetById(id);
 
         public void TAdd(Category entity) => _categoryDal.Insert(entity);
 

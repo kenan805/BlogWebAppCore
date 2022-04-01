@@ -5,6 +5,8 @@
 	Layout = "~/Views/Shared/WriterLayout.cshtml";
 }
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <h1>Yazarin bloqlari</h1>
 
 <table class="table table-bordered">
@@ -26,16 +28,16 @@
 			<td>@item.Category.CategoryName</td>
 			@if (item.BlogStatus)
 			{
-				<td class="badge badge-success">Active</td>
+				<td class="text text-success">Active</td>
 			}
 			else
 			{
-				<td class="badge badge-secondary">Passive</td>
+				<td class="text text-secondary">Passive</td>
 			}
-			<td>
-			<td><a href="#" class="btn btn-danger">Sil</a></td>
+			<td>@Html.ActionLink("Sil", "DeleteBlog", new { id = item.BlogID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmək istədiyinizə əminsiniz?')" })</td>
 			<td><a href="#" class="btn btn-warning">Redaktə et</a></td>
 		</tr>
 	}
 </table>
-<a href="#" class="btn btn-primary">Yeni Bloq yarat</a>
+<a href="/Blog/BlogAdd" class="btn btn-primary">Yeni Bloq yarat</a>
+
