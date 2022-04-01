@@ -20,22 +20,17 @@ namespace BusinessLayer.Concrete
         public List<Blog> GetLastThreeBlog() => _blogDal.GetAll().Take(3).ToList();
 
         public List<Blog> GetBlogListWithCategory() => _blogDal.GetListWithCategory();
+        public List<Blog> GetBlogListWithCategoryByWriter(int id) => _blogDal.GetListWithCategoryByWriter(id);
 
         public Blog GetById(int id)
         {
             throw new NotImplementedException();
         }
-        public List<Blog> GetBlogsById(int id)
-        {
-            return _blogDal.GetListAll(x => x.BlogID == id);
-        }
+        public List<Blog> GetBlogsById(int id) => _blogDal.GetListAll(x => x.BlogID == id);
 
         public List<Blog> GetBlogListWithWriter(int id) => _blogDal.GetListAll(x => x.WriterID == id);
 
-        public void TAdd(Blog entity)
-        {
-            _blogDal.Insert(entity);
-        }
+        public void TAdd(Blog entity) => _blogDal.Insert(entity);
 
         public void TDelete(Blog entity)
         {
