@@ -1,0 +1,24 @@
+﻿@using CoreDemo.Helpers
+@model List<Notification>
+@{
+	ViewData["Title"] = "AllNotification";
+	Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Bildirişlər</h1>
+<table class="table table-bordered">
+	<tr>
+		<th>#</th>
+		<th>Bildiriş</th>
+		<th>Tarix</th>
+	</tr>
+	@foreach (var item in Model.Where(x => x.NotificationStatus).OrderByDescending(x => x.NotificationDate))
+	{
+		<tr>
+			<td>@item.NotificationID</td>
+			<td>@item.NotificationDetails</td>
+			<td>@CalculateBetweenAgoDatetime.GetDifferenceMessage(item.NotificationDate)</td>
+		</tr>
+	}
+</table>
+
