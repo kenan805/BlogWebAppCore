@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "/Blog/BlogListByWriter",
+      "launchUrl": "Writer/WriterEditProfile",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

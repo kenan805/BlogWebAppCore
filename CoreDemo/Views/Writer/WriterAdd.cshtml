@@ -1,0 +1,51 @@
+﻿@model AddProfileImage
+
+@{
+	ViewData["Title"] = "WriterAdd";
+	Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<form class="form-group" method="post" enctype="multipart/form-data">
+	<div class="col-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Profil məlumatlarının redaktə edilməsi </h4>
+				<br />
+				@Html.HiddenFor(x=>x.WriterID, new { @class = "form-control"})
+				<div class="forms-sample">
+					<div class="form-group">
+						<label for="exampleInputName1">Yazıçı Ad Soyad</label>
+						@Html.TextBoxFor(x=>x.WriterName, new { @class = "form-control"})
+						@Html.ValidationMessageFor(x=>x.WriterName, null, new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail3">Email address</label>
+						@Html.TextBoxFor(x=>x.WriterMail, new { @class = "form-control"})
+						@Html.ValidationMessageFor(x=>x.WriterMail, null, new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						<label>Yazıçı şəkili</label>
+						<input type="file" name="WriterImage" >
+					</div>
+					<div class="form-group">
+						<label for="exampleTextarea1">Yazıçı haqqında</label>
+						@Html.TextAreaFor(x=>x.WriterAbout,10,3, new { @class = "form-control"})
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword4">Şifrə</label>
+						@Html.PasswordFor(x=>x.WriterPassword, new { @class = "form-control", required="required"})
+						@Html.ValidationMessageFor(x=>x.WriterPassword, null, new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword4">Şifrənizi təsdiqləyin</label>
+						<input type="password" class="form-control" name="passwordAgain" placeholder="" required="">
+						@Html.ValidationMessage("PasswordAgain", new { @class = "text-danger" })
+					</div>
+					<button type="submit" class="btn btn-gradient-primary mr-2">Təsdiqlə</button>
+					<button class="btn btn-light">Ləğv et</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+

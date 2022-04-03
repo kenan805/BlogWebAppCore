@@ -5,12 +5,14 @@ using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 
 namespace CoreDemo.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         private readonly WriterManager _writerManager = new WriterManager(new EfWriterRepository());
@@ -33,7 +35,7 @@ namespace CoreDemo.Controllers
             {
                 writer.WriterStatus = true;
                 writer.WriterAbout = "Test About";
-                _writerManager.WriterAdd(writer);
+                _writerManager.TAdd(writer);
                 return RedirectToAction("Index", "Blog");
             }
             else if (!results.IsValid)
