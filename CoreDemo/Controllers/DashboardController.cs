@@ -10,7 +10,6 @@ namespace CoreDemo.Controllers
     public class DashboardController : Controller
     {
         BlogManager _blogManager = new BlogManager(new EfBlogRepository());
-        [AllowAnonymous]
         public IActionResult Index()
         {
             Context ctx = new Context();
