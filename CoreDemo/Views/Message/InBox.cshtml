@@ -1,0 +1,32 @@
+﻿@model List<Message2>
+@{
+	ViewData["Title"] = "InBox";
+	Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Gələnlər qutusu</h1>
+
+<table class="table table-bordered">
+	<tr>
+		<th>#</th>
+		<th>Mövzu</th>
+		<th>Göndərən</th>
+		<th>Tarix</th>
+		<th>Mesajı aç</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<th>@item.MessageID</th>
+			<td>@item.Subject</td>
+			<td>@item.SenderWriter.WriterName</td>
+			<td>@CalculateBetweenAgoDatetime.GetDifferenceMessage(item.MessageDate)</td>
+			@*<td>@Html.ActionLink("Sil", "DeleteBlog", new { id = item.MessageID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmək istədiyinizə əminsiniz?')" })</td>*@
+			<td><a href="/Message/MessageDetails/@item.MessageID" class="btn btn-warning">Mesajı aç</a></td>
+		</tr>
+	}
+</table>
+<a href="/Blog/BlogAdd" class="btn btn-primary">Yeni Mesaj yarat</a>
+
+
+
