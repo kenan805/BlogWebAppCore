@@ -1,9 +1,32 @@
-﻿
+﻿@model IPagedList<Category>
+
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Kateqoriya listi</h1>
 <br />
-<h2>uangggasfnuasgndyfunaysdufnuasbfyaudsfbuasdbfubnasdufb ausdf</h2>
+<table class="table table-bordered">
+
+	<tr>
+		<th>#</th>
+		<th>Kateqoriya</th>
+		<th>Deaktiv et</th>
+		<th>Aktiv et</th>
+		<th>Redaktə et</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.CategoryID</td>
+			<td>@item.CategoryName</td>
+			<td><a href="#" class="btn btn-secondary">Deaktiv et</a></td>
+			<td><a href="#" class="btn btn-info">Aktiv et</a></td>
+			<td><a href="#" class="btn btn-success">Redaktə et</a></td>
+		</tr>
+	}
+
+</table>
+<br />
+@Html.PagedListPager(Model, page=>Url.Action("Index", "Category", new { page }))
