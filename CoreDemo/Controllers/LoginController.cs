@@ -27,7 +27,7 @@ namespace CoreDemo.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index(Writer writer)
         {
-            var dataValue = _writerManager.GetAll().FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+            var dataValue = new Context().Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
             if (dataValue != null)
             {
                 var claims = new List<Claim>

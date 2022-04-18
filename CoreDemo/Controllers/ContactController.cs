@@ -20,7 +20,7 @@ namespace CoreDemo.Controllers
         {
             contact.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             contact.ContactStatus = true;
-            _contactManager.ContactAdd(contact);
+            _contactManager.TAdd(contact);
             return RedirectToAction("Index", "Blog");
         }
     }

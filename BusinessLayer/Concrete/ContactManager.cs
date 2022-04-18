@@ -13,14 +13,16 @@ namespace BusinessLayer.Concrete
     {
         IContactDal _contactDal;
 
-        public ContactManager(IContactDal contactDal)
-        {
-            _contactDal = contactDal;
-        }
+        public ContactManager(IContactDal contactDal) => _contactDal = contactDal;
 
-        public void ContactAdd(Contact contact)
-        {
-            _contactDal.Insert(contact);
-        }
+        public List<Contact> GetAll() => _contactDal.GetAll();
+
+        public void TAdd(Contact entity) => _contactDal.Insert(entity);
+
+        public void TDelete(Contact entity) => _contactDal.Delete(entity);
+
+        public Contact TGetById(int id) => _contactDal.GetById(id);
+
+        public void TUpdate(Contact entity) => _contactDal.Update(entity);
     }
 }

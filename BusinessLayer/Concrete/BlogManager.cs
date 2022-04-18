@@ -22,10 +22,7 @@ namespace BusinessLayer.Concrete
         public List<Blog> GetBlogListWithCategory() => _blogDal.GetListWithCategory();
         public List<Blog> GetBlogListWithCategoryByWriter(int id) => _blogDal.GetListWithCategoryByWriter(id);
 
-        public Blog TGetById(int id)
-        {
-            return _blogDal.GetById(id);
-        }
+        public Blog TGetById(int id) => _blogDal.GetById(id);
         public List<Blog> GetBlogsById(int id) => _blogDal.GetFilterAll(x => x.BlogID == id);
 
         public List<Blog> GetBlogListWithWriter(int id) => _blogDal.GetFilterAll(x => x.WriterID == id);
