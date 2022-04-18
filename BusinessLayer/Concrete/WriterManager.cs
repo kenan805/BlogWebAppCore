@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,11 +21,12 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Writer> GetWriterById(int id) => _writerDal.GetListAll(x => x.WriterID == id);
 
-		public void TAdd(Writer entity) => _writerDal.Insert(entity);
+        public List<Writer> GetWriterById(int id) => _writerDal.GetFilterAll(x => x.WriterID == id);
 
-		public void TDelete(Writer entity)
+        public void TAdd(Writer entity) => _writerDal.Insert(entity);
+
+        public void TDelete(Writer entity)
         {
             throw new NotImplementedException();
         }

@@ -9,13 +9,13 @@ namespace CoreDemo.Controllers
 {
     public class DashboardController : Controller
     {
-        BlogManager _blogManager = new BlogManager(new EfBlogRepository());
+        private readonly BlogManager _blogManager = new BlogManager(new EfBlogRepository());
+        private readonly CategoryManager _categoryManager = new CategoryManager(new EfCategoryRepository());
         public IActionResult Index()
         {
-            Context ctx = new Context();
-            ViewBag.v1 = ctx.Blogs.Count();
-            ViewBag.v2 = ctx.Blogs.Where(x => x.WriterID == 1).Count().ToString();
-            ViewBag.v3 = ctx.Categories.Count();
+            ViewBag.v1 = _blogManager.GetAll().Count();
+            ViewBag.v2 = _blogManager.GetBlogListWithWriter(1).Count().ToString();
+            ViewBag.v3 = _categoryManager.GetAll().Count();
             return View();
         }
     }

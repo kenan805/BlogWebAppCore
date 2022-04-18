@@ -23,7 +23,7 @@ namespace BusinessLayer.Concrete
             _commentDal.Insert(comment);
         }
 
-		public List<Comment> GetAll(int id) => _commentDal.GetListAll(x => x.BlogID == id);
+		public List<Comment> GetAll(int id) => _commentDal.GetFilterAll(x => x.BlogID == id);
 
 	}
 }

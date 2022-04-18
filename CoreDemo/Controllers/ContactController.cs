@@ -8,7 +8,7 @@ namespace CoreDemo.Controllers
 {
     public class ContactController : Controller
     {
-        ContactManager _contactManager = new ContactManager(new EfContactRepository());
+        private readonly ContactManager _contactManager = new ContactManager(new EfContactRepository());
         [HttpGet]
         public IActionResult Index()
         {

@@ -8,7 +8,7 @@ namespace CoreDemo.Controllers
 {
     public class CommentController : Controller
     {
-        CommentManager _commentManager = new CommentManager(new EfCommentRepository());
+        private readonly CommentManager _commentManager = new CommentManager(new EfCommentRepository());
         public IActionResult Index()
         {
             return View();

@@ -10,7 +10,6 @@ using X.PagedList;
 namespace CoreDemo.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
     public class CategoryController : Controller
     {
         private readonly CategoryManager _categoryManager = new CategoryManager(new EfCategoryRepository());

@@ -16,14 +16,13 @@ namespace CoreDemo.Controllers
 
     public class WriterController : Controller
     {
-        WriterManager _writerManager = new WriterManager(new EfWriterRepository());
+        private readonly WriterManager _writerManager = new WriterManager(new EfWriterRepository());
         [Authorize]
         public IActionResult Index()
         {
             var userMail = User.Identity.Name;
             ViewBag.v = userMail;
-            Context ctx = new Context();
-            var writerName = ctx.Writers.FirstOrDefault(x => x.WriterMail == userMail).WriterName;
+            var writerName = _writerManager.GetAll().FirstOrDefault(x => x.WriterMail == userMail).WriterName;
             ViewBag.v2 = writerName;
             return View();
         }
@@ -56,9 +55,8 @@ namespace CoreDemo.Controllers
         [HttpGet]
         public IActionResult WriterEditProfile()
         {
-            Context ctx = new Context();
             var userMail = User.Identity.Name;
-            var writerId = ctx.Writers.FirstOrDefault(x => x.WriterMail == userMail).WriterID;
+            var writerId = _writerManager.GetAll().FirstOrDefault(x => x.WriterMail == userMail).WriterID;
             var writerValues = _writerManager.TGetById(writerId);
             return View(writerValues);
         }

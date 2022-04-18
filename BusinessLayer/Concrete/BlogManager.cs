@@ -26,9 +26,9 @@ namespace BusinessLayer.Concrete
         {
             return _blogDal.GetById(id);
         }
-        public List<Blog> GetBlogsById(int id) => _blogDal.GetListAll(x => x.BlogID == id);
+        public List<Blog> GetBlogsById(int id) => _blogDal.GetFilterAll(x => x.BlogID == id);
 
-        public List<Blog> GetBlogListWithWriter(int id) => _blogDal.GetListAll(x => x.WriterID == id);
+        public List<Blog> GetBlogListWithWriter(int id) => _blogDal.GetFilterAll(x => x.WriterID == id);
 
         public void TAdd(Blog entity) => _blogDal.Insert(entity);
 

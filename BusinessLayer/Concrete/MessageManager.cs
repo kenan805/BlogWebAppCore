@@ -17,7 +17,7 @@ namespace BusinessLayer.Concrete
 
 		public List<Message> GetAll() => _messageDal.GetAll();
 
-		public List<Message> GetInboxListByWriter(string param) => _messageDal.GetListAll(x => x.Receiver == param);
+		public List<Message> GetInboxListByWriter(string param) => _messageDal.GetFilterAll(x => x.Receiver == param);
 
 		public void TAdd(Message entity)
         {

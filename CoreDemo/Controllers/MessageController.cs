@@ -8,7 +8,7 @@ namespace CoreDemo.Controllers
     [AllowAnonymous]
     public class MessageController : Controller
     {
-        Message2Manager _messageManager = new Message2Manager(new EfMessage2Repository());
+        private readonly Message2Manager _messageManager = new Message2Manager(new EfMessage2Repository());
         public IActionResult InBox()
         {
             int id = 2;

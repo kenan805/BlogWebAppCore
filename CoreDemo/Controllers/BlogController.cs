@@ -15,9 +15,10 @@ namespace CoreDemo.Controllers
 {
     public class BlogController : Controller
     {
-        BlogManager _blogManager = new BlogManager(new EfBlogRepository());
-        CategoryManager _categoryManager = new CategoryManager(new EfCategoryRepository());
-        Context ctx = new Context();
+        private readonly BlogManager _blogManager = new BlogManager(new EfBlogRepository());
+        private readonly CategoryManager _categoryManager = new CategoryManager(new EfCategoryRepository());
+        private readonly WriterManager _writerManager = new WriterManager(new EfWriterRepository());
+
         public IActionResult Index()
         {
             var values = _blogManager.GetBlogListWithCategory();
@@ -32,7 +33,7 @@ namespace CoreDemo.Controllers
         public IActionResult BlogListByWriter()
         {
             var userMail = User.Identity.Name;
-            var writerId = ctx.Writers.FirstOrDefault(x => x.WriterMail == userMail).WriterID;
+            var writerId = _writerManager.GetAll().FirstOrDefault(x => x.WriterMail == userMail).WriterID;
             var values = _blogManager.GetBlogListWithCategoryByWriter(writerId);
             return View(values);
         }
@@ -52,7 +53,7 @@ namespace CoreDemo.Controllers
         public IActionResult BlogAdd(Blog blog)
         {
             var userMail = User.Identity.Name;
-            var writerId = ctx.Writers.FirstOrDefault(x => x.WriterMail == userMail).WriterID;
+            var writerId = _writerManager.GetAll().FirstOrDefault(x => x.WriterMail == userMail).WriterID;
             BlogValidator _blogValidator = new BlogValidator();
             ValidationResult results = _blogValidator.Validate(blog);
             if (results.IsValid)
@@ -95,7 +96,7 @@ namespace CoreDemo.Controllers
         public IActionResult EditBlog(Blog blog)
         {
             var userMail = User.Identity.Name;
-            var writerId = ctx.Writers.FirstOrDefault(x => x.WriterMail == userMail).WriterID;
+            var writerId = _writerManager.GetAll().FirstOrDefault(x => x.WriterMail == userMail).WriterID;
             blog.WriterID = writerId;
             blog.BlogCreateDate = DateTime.Parse(_blogManager.TGetById(blog.BlogID).BlogCreateDate.ToShortDateString());
             blog.BlogStatus = true;

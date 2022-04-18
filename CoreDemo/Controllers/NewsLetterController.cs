@@ -7,7 +7,7 @@ namespace CoreDemo.Controllers
 {
     public class NewsLetterController : Controller
     {
-        NewsLetterManager _newsletterManager = new NewsLetterManager(new EfNewsLetterRepository());
+        private readonly NewsLetterManager _newsletterManager = new NewsLetterManager(new EfNewsLetterRepository());
 
         [HttpGet]
         public PartialViewResult SubscribeMail()

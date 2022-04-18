@@ -7,7 +7,7 @@ namespace CoreDemo.Controllers
 {
     public class NotificationController : Controller
     {
-        NotificationManager _notificationManager = new NotificationManager(new EfNotificationRepository());
+        private readonly NotificationManager _notificationManager = new NotificationManager(new EfNotificationRepository());
         public IActionResult Index()
         {
             return View();

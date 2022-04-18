@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -13,6 +15,8 @@ namespace CoreDemo.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly WriterManager _writerManager = new WriterManager(new EfWriterRepository());
+
         [AllowAnonymous]
         public IActionResult Index()
         {
@@ -23,8 +27,7 @@ namespace CoreDemo.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index(Writer writer)
         {
-            Context ctx = new Context();
-            var dataValue = ctx.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+            var dataValue = _writerManager.GetAll().FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
             if (dataValue != null)
             {
                 var claims = new List<Claim>
