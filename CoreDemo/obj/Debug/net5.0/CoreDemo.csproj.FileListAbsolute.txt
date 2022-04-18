@@ -203,3 +203,4 @@ C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Areas\Admin\
 C:\Users\user\source\repos\CoreDemo\CoreDemo\bin\Debug\net5.0\JetBrains.Annotations.dll
 C:\Users\user\source\repos\CoreDemo\CoreDemo\bin\Debug\net5.0\X.PagedList.dll
 C:\Users\user\source\repos\CoreDemo\CoreDemo\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
+C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\AddCategory.cshtml.g.cs

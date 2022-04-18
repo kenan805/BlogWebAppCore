@@ -1,0 +1,22 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Yeni Kateqoriya girişi</h1>
+<br />
+@using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
+{
+	@Html.Label("Kateqoriya adı")
+	@Html.TextBoxFor(x=> x.CategoryName, new {@class="form-control"})
+	@Html.ValidationMessageFor(x=>x.CategoryName)
+	<br />
+	@Html.Label("Bloq kontenti")
+	@Html.TextAreaFor(x=>x.CategoryDescription, 15, 3, new {@class="form-control"})
+	@Html.ValidationMessageFor(x=>x.CategoryDescription)
+	<br />
+	<button class="btn btn-info">Yadda saxla</button>
+}
+
+
