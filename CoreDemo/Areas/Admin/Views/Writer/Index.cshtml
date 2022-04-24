@@ -1,0 +1,175 @@
+﻿@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Writer Ajax process</h1>
+<br />
+<div>
+	<button type="button" id="btnGetList" class="btn btn-outline-primary">Yazici siyahisi</button>
+	<br /><br />
+	<div id="writerList"></div>
+</div>
+<div>
+	<h3>Yazar axtar</h3>
+	<input id="writerId" type="text" placeholder="Yazar id-ni daxil edin..." class="form-control" />
+	<br />
+	<button type="button" id="btnGetById" class="btn btn-outline-success">Yazici getir</button>
+	<br /><br />
+	<div id="writerGet"></div>
+</div>
+<div>
+	<h3>Yeni yazar</h3>
+	<input id="addWriterName" type="text" placeholder="Yazar name-ni daxil edin..." class="form-control" />
+	<textarea id="addWriterAbout" type="text" placeholder="Yazar haqqinda daxil edin..." class="form-control"></textarea> 
+	<input id="addWriterMail" type="email" placeholder="Yazar mailini daxil edin..." class="form-control" />
+	<input id="addWriterImage" type="text" placeholder="Yazar img file yolunu daxil edin..." class="form-control" />
+	<input id="addWriterPassword" type="password" placeholder="Yazar parolunu daxil edin..." class="form-control" />
+	<br />
+	<button type="button" id="btnAddWriter" class="btn btn-outline-info">Yazici elave et</button>
+</div>
+<br />
+<div>
+	<h3>Yazar sil</h3>
+	<input id="delWriterId" type="text" placeholder="Yazar id-ni daxil edin..." class="form-control" />
+	<br />
+	<button type="button" id="btnDelWriter" class="btn btn-outline-danger">Yazici sil</button>
+</div>
+<br />
+<div>
+	<h3>Yazar update</h3>
+	<input id="updWriterId" type="text" placeholder="Yazar id-ni daxil edin..." class="form-control" />
+	<input id="updWriterName" type="text" placeholder="Yazar name-ni daxil edin..." class="form-control" />
+	<textarea id="updWriterAbout" type="text" placeholder="Yazar haqqinda daxil edin..." class="form-control"></textarea> 
+	<input id="updWriterMail" type="email" placeholder="Yazar mailini daxil edin..." class="form-control" />
+	<input id="updWriterImage" type="text" placeholder="Yazar img file yolunu daxil edin..." class="form-control" />
+	<input id="updWriterPassword" type="password" placeholder="Yazar parolunu daxil edin..." class="form-control" />
+	<br />
+	<button type="button" id="btnUpdWriter" class="btn btn-outline-warning">Yazici update</button>
+</div>
+<br />
+
+@section scripts {
+<script>
+	$("#btnGetList").click(function() {
+		$.ajax({
+			contentType: "application/json",
+			dataType: "json",
+			type: "Get",
+			url: "/Admin/Writer/WriterList/",
+			success: function (func) {
+				let writer = jQuery.parseJSON(func);
+				let tableHtml = `<table class="table table-bordered"> 
+									<tr>
+										<th> Yazici ID</th> 
+										<th> Yazici Adi</th>
+										<th> Yazici Haqqinda</th>
+										<th> Yazici Mail</th>
+										<th> Yazici Status</th>
+										<th> Yazici Sekili</th>
+									</tr>`;
+				$.each(writer,(index,value) => {
+					tableHtml += `<tr>
+									<td>${value.WriterID}</td> 
+									<td>${value.WriterName}</td>
+									<td>${value.WriterAbout}</td>
+									<td>${value.WriterMail}</td>
+									<td>${(value.WriterStatus == true) ? '&#9989;' : '&#10060;'}</td>
+									<td><img src="${value.WriterImage}" width="50px" alt="No image" /></td>
+								  </tr>`
+				});
+				tableHtml += '</table>';
+				$("#writerList").html(tableHtml);
+			}
+		});
+	});
+
+	$("#btnGetById").click(x=>{
+		let id = $("#writerId").val();
+		$.ajax({
+			contentType: "application/json",
+			dataType: "json",
+			type: "get",
+			url: "/Admin/Writer/GetWriterById/",
+			data: { writerId: id },
+			success: function(func) {
+				let writer = jQuery.parseJSON(func);
+
+				let getValue = `<table class="table table-bordered"> 
+									<tr>
+										<th> Yazici ID</th> 
+										<th> Yazici Adi</th>
+										<th> Yazici Haqqinda</th>
+										<th> Yazici Mail</th>
+										<th> Yazici Status</th>
+										<th> Yazici Sekili</th>
+									</tr>
+									<tr>
+										<td>${writer.WriterID}</td> 
+										<td>${writer.WriterName}</td>
+										<td>${writer.WriterAbout}</td>
+										<td>${writer.WriterMail}</td>
+										<td>${(writer.WriterStatus == true) ? '&#9989;' : '&#10060;'}</td>
+										<td><img src="${writer.WriterImage}" width="50px" alt="No image" /></td>
+									</tr>
+								</table>`
+				$("#writerGet").html(getValue);
+			}
+		});
+	});
+
+	$("#btnAddWriter").click(function() {
+		let writer = {
+			WriterName: $("#addWriterName").val(),
+			WriterAbout: $("#addWriterAbout").val(),
+			WriterMail: $("#addWriterMail").val(),
+			WriterImage: $("#addWriterImage").val(),
+			WriterPassword: $("#addWriterPassword").val()
+		};
+
+		$.ajax({
+			type: "post",
+			url: "/Admin/Writer/AddWriter/",
+			data: writer,
+			success: function(func) {
+				let result = jQuery.parseJSON(func);
+				alert("Yazar elave etme prosesi ugurlu oldu!");
+			}
+		})
+	});
+
+	$("#btnDelWriter").click(x=>{
+		let id = $("#delWriterId").val();
+		$.ajax({
+			url: "/Admin/Writer/DeleteWriter/",
+			type: "post",
+			data: { writerId: id },
+			dataType: "json", 
+			success: function(func) {
+				alert("Yazar silinme prosesi ugurlu oldu!");
+			}
+		});
+	});
+
+	$("#btnUpdWriter").click(function() {
+		let writer = {
+			WriterID: $("#updWriterId").val(),
+			WriterName: $("#updWriterName").val(),
+			WriterAbout: $("#updWriterAbout").val(),
+			WriterMail: $("#updWriterMail").val(),
+			WriterImage: $("#updWriterImage").val(),
+			WriterPassword: $("#updWriterPassword").val()
+		};
+
+		$.ajax({
+			type: "post",
+			url: "/Admin/Writer/UpdateWriter/",
+			data: writer,
+			success: function(func) {
+				alert("Update ugurlu oldu!");
+			}
+		});
+	});
+
+</script>
+}
