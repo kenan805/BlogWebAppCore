@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BlogApiDemo",
+    "\\BlogApiDemo\\DataAccessLayer"
   ],
   "SelectedNode": "\\CoreDemo.sln",
   "PreviewInSolutionExplorer": false
