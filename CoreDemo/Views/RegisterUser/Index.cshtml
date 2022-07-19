@@ -1,6 +1,6 @@
 ﻿@model UserSignUpViewModel;
 @{
-    Layout = null;
+	Layout = null;
 }
 
 <!DOCTYPE html>
@@ -8,66 +8,87 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Register</title>
+	<title>INSPINIA | Register</title>
 
-    <link href="~/admin_pages/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/admin_pages/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="~/admin_pages/css/plugins/iCheck/custom.css" rel="stylesheet">
-    <link href="~/admin_pages/css/animate.css" rel="stylesheet">
-    <link href="~/admin_pages/css/style.css" rel="stylesheet">
+	<link href="~/admin_pages/css/bootstrap.min.css" rel="stylesheet">
+	<link href="~/admin_pages/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link href="~/admin_pages/css/plugins/iCheck/custom.css" rel="stylesheet">
+	<link href="~/admin_pages/css/animate.css" rel="stylesheet">
+	<link href="~/admin_pages/css/style.css" rel="stylesheet">
 
 </head>
 
 <body class="gray-bg">
 
-    <div class="middle-box text-center loginscreen   animated fadeInDown">
-        <div>
-            <div>
+	<div class="middle-box text-center loginscreen   animated fadeInDown">
+		<div>
+			<div>
 
-                <h1 class="logo-name">IN+</h1>
+				<h3 class="logo-name">IN+</h3>
 
-            </div>
-            <h3>Register here</h3>
-            <p>Create account to see it in action.</p>
-            <form class="m-t" role="form" action="login.html">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Name" required="">
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email" required="">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required="">
-                </div>
-                <div class="form-group">
-                        <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Agree the terms and policy </label></div>
-                </div>
-                <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
+			</div>
+			<h3>Register here</h3>
+			<p>Create new account</p>
+			<form class="m-t" role="form" asp-action="Index">
+				<div class="form-group">
+					<input type="text" class="form-control" asp-for="@Model.Fullname" placeholder="Fullname" />
+					<span asp-validation-for="@Model.Fullname" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<input type="email" class="form-control" asp-for="@Model.Mail" placeholder="Email" />
+					<span asp-validation-for="@Model.Mail" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" asp-for="@Model.UserName" placeholder="Username" />
+					<span asp-validation-for="@Model.UserName" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" asp-for="@Model.Password" placeholder="Password" required="">
+					<span asp-validation-for="@Model.Password" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" asp-for="@Model.ConfirmPassword" placeholder="Confirm password" required="">
+					<span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<div class="checkbox i-checks">
+						<label>
+							<input type="checkbox" class="form-control" asp-for="@Model.IsAcceptContract">
+							Agree the terms and policy
+						</label>
+					</div>
+					<span asp-validation-for="@Model.IsAcceptContract" class="text-danger"></span>
+				</div>
+				<button type="submit" class="btn btn-primary block full-width m-b">Register</button>
 
-                <p class="text-muted text-center"><small>Already have an account?</small></p>
-                <a class="btn btn-sm btn-white btn-block" href="login.html">Login</a>
-            </form>
-            <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
-        </div>
-    </div>
+				<p class="text-muted text-center"><small>Already have an account?</small></p>
+				<a class="btn btn-sm btn-white btn-block" href="/RegisterUser/Login/">Login</a>
 
-    <!-- Mainly scripts -->
-    <script src="~/admin_pages/js/jquery-3.1.1.min.js"></script>
-    <script src="~/admin_pages/js/popper.min.js"></script>
-    <script src="~/admin_pages/js/bootstrap.js"></script>
-    <!-- iCheck -->
-    <script src="~/admin_pages/js/plugins/iCheck/icheck.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.i-checks').iCheck({
-                checkboxClass: 'icheckbox_square-green',
-                radioClass: 'iradio_square-green',
-            });
-        });
-    </script>
+
+				<div class="text-danger" asp-validation-summary="ModelOnly">
+				</div>
+			</form>
+			<p class="m-t"> <small>ASP.NET Core 5.0 Proje kampı | Bütün hüquqlar qorunur &copy; @DateTime.Now.Year</small> </p>
+		</div>
+	</div>
+
+	<!-- Mainly scripts -->
+	<script src="~/admin_pages/js/jquery-3.1.1.min.js"></script>
+	<script src="~/admin_pages/js/popper.min.js"></script>
+	<script src="~/admin_pages/js/bootstrap.js"></script>
+	<!-- iCheck -->
+	<script src="~/admin_pages/js/plugins/iCheck/icheck.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.i-checks').iCheck({
+				checkboxClass: 'icheckbox_square-green',
+				radioClass: 'iradio_square-green',
+			});
+		});
+	</script>
 </body>
 
 </html>

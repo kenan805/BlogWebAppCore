@@ -26,6 +26,11 @@ namespace CoreDemo.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UserSignUpViewModel p)
         {
+            if (!p.IsAcceptContract)
+            {
+                ModelState.AddModelError("IsAcceptContract", "Please accept agree the terms and policy");
+                return View(p);
+            }
             if (ModelState.IsValid)
             {
                 AppUser user = new AppUser()

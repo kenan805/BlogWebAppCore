@@ -23,5 +23,8 @@ namespace CoreDemo.Models
         [Display(Name = "Username")]
         [Required(ErrorMessage = "Please input username")]
         public string UserName { get; set; }
+
+
+        public bool IsAcceptContract { get; set; }
     }
 }
