@@ -27,6 +27,7 @@ namespace CoreDemo
             services.AddIdentity<AppUser, AppRole>(x =>
             {
                 x.Password.RequireUppercase = false; // view terefde parolun uppercase mecburiyetini legv edirik.
+                x.Password.RequireNonAlphanumeric = false;
             }).AddEntityFrameworkStores<Context>();
 
             services.AddControllersWithViews();
@@ -62,19 +63,15 @@ namespace CoreDemo
                 app.UseHsts();
             }
 
-            app.UseStatusCodePages();
             app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1", "?code{0}");
-
+            //app.UseStatusCodePages();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseAuthentication();
-
             //app.UseSession();
-
             app.UseRouting();
-
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
@@ -84,7 +81,7 @@ namespace CoreDemo
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Blog}/{action=Index}/{id?}");
             });
         }
     }

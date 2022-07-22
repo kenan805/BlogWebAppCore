@@ -1,7 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CoreDemo"
+    "\\CoreDemo",
+    "\\CoreDemo\\Areas",
+    "\\CoreDemo\\Areas\\Admin",
+    "\\CoreDemo\\Areas\\Admin\\Views",
+    "\\CoreDemo\\Areas\\Admin\\Views\\Shared",
+    "\\CoreDemo\\Views",
+    "\\CoreDemo\\Views\\Shared",
+    "\\CoreDemo\\Views\\Shared\\Components",
+    "\\CoreDemo\\Views\\Shared\\Components\\WriterAboutOnDashboard"
   ],
   "SelectedNode": "\\CoreDemo.sln",
   "PreviewInSolutionExplorer": false

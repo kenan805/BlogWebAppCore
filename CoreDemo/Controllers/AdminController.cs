@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Controllers
 {
-    [AllowAnonymous]
+    //[AllowAnonymous]
     public class AdminController : Controller
     {
         public IActionResult Index()

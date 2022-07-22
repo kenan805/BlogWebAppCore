@@ -1,10 +1,12 @@
 ﻿using BusinessLayer.Concrete;
+using CoreDemo.Models;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,38 +15,60 @@ using System.Threading.Tasks;
 
 namespace CoreDemo.Controllers
 {
-    public class LoginController : Controller
+    [AllowAnonymous]
+    public class LoginController : Controller 
     {
-        private readonly WriterManager _writerManager = new WriterManager(new EfWriterRepository());
+        //private readonly WriterManager _writerManager = new WriterManager(new EfWriterRepository());
+        private readonly SignInManager<AppUser> _signInManager;
 
-        [AllowAnonymous]
+        public LoginController(SignInManager<AppUser> signInManager)
+        {
+            _signInManager = signInManager;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
-        [AllowAnonymous]
-        public async Task<IActionResult> Index(Writer writer)
+        public async Task<IActionResult> Index(UserSignInViewModel p)
         {
-            var dataValue = new Context().Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
-            if (dataValue != null)
+            if (ModelState.IsValid)
             {
-                var claims = new List<Claim>
+                var result = await _signInManager.PasswordSignInAsync(p.UserName, p.Password, false, true);
+                if (result.Succeeded)
                 {
-                    new Claim(ClaimTypes.Name,writer.WriterMail)
-                };
-                var userIdentity = new ClaimsIdentity(claims, "a");  // niye burda mutleq deyer gondermeliyik
-                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-                await HttpContext.SignInAsync(principal);
-
-                return RedirectToAction("Index", "Dashboard");
+                    return RedirectToAction("Index", "Dashboard");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");                }
             }
-            else
-            {
-                return View();
-            }
+            return View();
         }
+
+        //[HttpPost]
+        //public async Task<IActionResult> Index(Writer writer)
+        //{
+        //    var dataValue = new Context().Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+        //    if (dataValue != null)
+        //    {
+        //        var claims = new List<Claim>
+        //        {
+        //            new Claim(ClaimTypes.Name,writer.WriterMail)
+        //        };
+        //        var userIdentity = new ClaimsIdentity(claims, "a");  // niye burda mutleq deyer gondermeliyik
+        //        ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+        //        await HttpContext.SignInAsync(principal);
+
+        //        return RedirectToAction("Index", "Dashboard");
+        //    }
+        //    else
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }
 

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Controllers
 {
-    [AllowAnonymous]
+    //[AllowAnonymous]
     public class MessageController : Controller
     {
         private readonly Message2Manager _messageManager = new Message2Manager(new EfMessage2Repository());

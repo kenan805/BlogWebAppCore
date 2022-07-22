@@ -12,7 +12,7 @@ namespace CoreDemo.Controllers
         {
             return View();
         }
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public IActionResult AllNotification()
         {
             var values = _notificationManager.GetAll();

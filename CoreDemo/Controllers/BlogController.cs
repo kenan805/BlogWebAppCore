@@ -19,11 +19,13 @@ namespace CoreDemo.Controllers
         private readonly CategoryManager _categoryManager = new CategoryManager(new EfCategoryRepository());
         private readonly WriterManager _writerManager = new WriterManager(new EfWriterRepository());
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var values = _blogManager.GetBlogListWithCategory();
             return View(values);
         }
+        [AllowAnonymous]
         public IActionResult BlogReadAll(int id)
         {
             ViewBag.i = id;
