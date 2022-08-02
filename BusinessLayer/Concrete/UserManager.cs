@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public List<AppUser> GetAll()
         {
-            throw new NotImplementedException();
+            return _userDal.GetAll();
         }
 
         public void TAdd(AppUser entity)

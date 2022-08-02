@@ -33,7 +33,6 @@ namespace CoreDemo.Controllers
             var userMail = User.Identity.Name;
             ViewBag.v = userMail;
             Context ctx = new Context();
-            //var writerName = _writerManager.GetAll().FirstOrDefault(x => x.WriterMail == userMail).WriterName;
             var writerName = _writerManager.GetAll().Where(x => x.WriterMail == userMail).Select(y => y.WriterName).FirstOrDefault();
             ViewBag.v2 = writerName;
             return View();
@@ -107,6 +106,7 @@ namespace CoreDemo.Controllers
             user.Email = model.Mail;
             user.Fullname = model.FullName;
             user.ImageUrl = model.ImageUrl;
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, model.Password);
             var result = await _userManager.UpdateAsync(user);
             return RedirectToAction("Index", "Dashboard");
         }
@@ -139,5 +139,10 @@ namespace CoreDemo.Controllers
             _writerManager.TAdd(w);
             return RedirectToAction("Index", "Dashboard");
         }
+
+        //public async Task<IActionResult> LogOut()
+        //{
+
+        //}
     }
 }

@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace CoreDemo.Controllers
 {
     [AllowAnonymous]
-    public class LoginController : Controller 
+    public class LoginController : Controller
     {
         //private readonly WriterManager _writerManager = new WriterManager(new EfWriterRepository());
         private readonly SignInManager<AppUser> _signInManager;
@@ -43,43 +43,17 @@ namespace CoreDemo.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Login");                }
+                    return RedirectToAction("Index", "Login");
+                }
             }
             return View();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Index(Writer writer)
-        //{
-        //    var dataValue = new Context().Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
-        //    if (dataValue != null)
-        //    {
-        //        var claims = new List<Claim>
-        //        {
-        //            new Claim(ClaimTypes.Name,writer.WriterMail)
-        //        };
-        //        var userIdentity = new ClaimsIdentity(claims, "a");  // niye burda mutleq deyer gondermeliyik
-        //        ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-        //        await HttpContext.SignInAsync(principal);
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Login");
+        }
 
-        //        return RedirectToAction("Index", "Dashboard");
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-        //}
     }
 }
-
-//Context ctx = new Context();
-//var dataValue = ctx.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
-//if (dataValue != null)
-//{
-//    HttpContext.Session.SetString("username", writer.WriterMail);
-//    return RedirectToAction("Index", "Writer");
-//}
-//else
-//{
-//    return View();
-//}

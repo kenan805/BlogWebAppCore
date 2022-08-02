@@ -17,16 +17,21 @@ namespace BusinessLayer.Concrete
 
         public List<Message2> GetAll() => _message2Dal.GetAll();
 
-        public List<Message2> GetInboxListByWriter(int id) => _message2Dal.GetListWithMessageByWriter(id);
+        public List<Message2> GetInboxListByWriter(int id) => _message2Dal.GetInboxWithMessageByWriter(id);
 
-        public void TAdd(Message2 entity)
+		public List<Message2> GetSendBoxListByWriter(int id)
+		{
+            return _message2Dal.GetSendBoxWithMessageByWriter(id);
+		}
+
+		public void TAdd(Message2 entity)
         {
-            throw new NotImplementedException();
+            _message2Dal.Insert(entity);
         }
 
         public void TDelete(Message2 entity)
         {
-            throw new NotImplementedException();
+            _message2Dal.Delete(entity);
         }
 
         public Message2 TGetById(int id) => _message2Dal.GetById(id);

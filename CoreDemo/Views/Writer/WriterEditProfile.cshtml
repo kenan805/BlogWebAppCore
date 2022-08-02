@@ -35,7 +35,13 @@
 						<label for="exampleInputEmail3">Yazıçı şəkili</label>
 						@*@Html.TextBoxFor(x=>x.Email, new { @class = "form-control"})*@
 						<input type="text" asp-for="@Model.ImageUrl" class="form-control" />
-						@*@Html.ValidationMessageFor(x=>x.Mail, null, new { @class = "text-danger" })*@
+						@Html.ValidationMessageFor(x=>x.ImageUrl, null, new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail3">Yeni şifrəniz</label>
+						@*@Html.TextBoxFor(x=>x.Email, new { @class = "form-control"})*@
+						<input type="text" asp-for="@Model.Password" class="form-control" />
+						@Html.ValidationMessageFor(x=>x.Password, null, new { @class = "text-danger" })
 					</div>
 					@*<div class="form-group">
 						<label>Yazıçı şəkili</label>

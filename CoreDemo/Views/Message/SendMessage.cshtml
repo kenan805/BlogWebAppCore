@@ -1,0 +1,25 @@
+﻿@model Message2
+
+@{
+    ViewData["Title"] = "SendMessage";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Yeni Mesaj yaratma</h1>
+<br />
+@using (Html.BeginForm("SendMessage", "Message", FormMethod.Post))
+{
+	@Html.Label("Mesajı alan")
+	@Html.TextBox("receiverMail", "", new {@class = "form-control"})
+	<br />
+	@Html.Label("Mövzu")
+	@Html.TextBoxFor(x=>x.Subject, new {@class = "form-control"})
+	<br />
+	@Html.Label("Mesajınız")
+	@Html.TextAreaFor(x=>x.MessageDetails, 15, 3, new {@class = "form-control"})
+	<br />
+	<button class="btn btn-info">Mesajı göndər</button>
+}
+
+
+
