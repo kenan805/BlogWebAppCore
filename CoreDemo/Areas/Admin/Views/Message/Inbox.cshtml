@@ -1,0 +1,98 @@
+﻿@model List<Message2>
+@{
+	ViewData["Title"] = "Inbox";
+	Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+<body>
+	<div class="wrapper wrapper-content">
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="ibox ">
+					<div class="ibox-content mailbox-content">
+						<div class="file-manager">
+							<a class="btn btn-block btn-primary compose-mail" href="mail_compose.html">Mesaj qutusu</a>
+							<div class="space-25"></div>
+							<h5>Folders</h5>
+							<ul class="folder-list m-b-md" style="padding: 0">
+								<li><a href="/Admin/Message/Inbox"> <i class="fa fa-inbox "></i> Gələn mesajlar <span class="label label-warning float-right">16</span> </a></li>
+								<li><a href="/Admin/Message/SendBox"> <i class="fa fa-envelope-o"></i> Gedən mesajar </a></li>
+								<li><a href="mailbox.html"> <i class="fa fa-certificate"></i> Vacib mesajlar</a></li>
+								<li><a href="mailbox.html"> <i class="fa fa-file-text-o"></i> Drafts <span class="label label-danger float-right">2</span></a></li>
+								<li><a href="mailbox.html"> <i class="fa fa-trash-o"></i> Trash</a></li>
+							</ul>
+							<h5>Categories</h5>
+							<ul class="category-list" style="padding: 0">
+								<li><a href="#"> <i class="fa fa-circle text-navy"></i> Work </a></li>
+								<li><a href="#"> <i class="fa fa-circle text-danger"></i> Documents</a></li>
+								<li><a href="#"> <i class="fa fa-circle text-primary"></i> Social</a></li>
+								<li><a href="#"> <i class="fa fa-circle text-info"></i> Advertising</a></li>
+								<li><a href="#"> <i class="fa fa-circle text-warning"></i> Clients</a></li>
+							</ul>
+
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-9 animated fadeInRight">
+				<div class="mail-box-header">
+
+					<form method="get" action="index.html" class="float-right mail-search">
+						<div class="input-group">
+							<input type="text" class="form-control form-control-sm" name="search" placeholder="Search email">
+							<div class="input-group-btn">
+								<button type="submit" class="btn btn-sm btn-primary">
+									Axtar
+								</button>
+							</div>
+						</div>
+					</form>
+					<h2>
+						Gələn qutusu (0)
+					</h2>
+					<div class="mail-tools tooltip-demo m-t-md">
+						<div class="btn-group float-right">
+							<button class="btn btn-white btn-sm"><i class="fa fa-arrow-left"></i></button>
+							<button class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i></button>
+
+						</div>
+						<button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="left" title="Yenilə"><i class="fa fa-refresh"></i> Refresh</button>
+						<button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Oxundu olaraq işarələ"><i class="fa fa-eye"></i> </button>
+						<button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Vacib olaraq işarələ"><i class="fa fa-exclamation"></i> </button>
+						<button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Silindi olaraq işarələ"><i class="fa fa-trash-o"></i> </button>
+
+					</div>
+				</div>
+				<div class="mail-box">
+
+					<table class="table table-hover table-mail">
+						<tbody>
+							@foreach (var item in Model)
+							{
+								<tr class="unread">
+									<td class="check-mail">
+										<input type="checkbox" class="i-checks">
+									</td>
+									<td class="mail-ontact"><a href="mail_detail.html">@item.SenderWriter.WriterName</a></td>
+									<td class="mail-subject"><a href="mail_detail.html">@item.Subject</a></td>
+									<td class="text-right mail-date">@item.MessageDate</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
+
+

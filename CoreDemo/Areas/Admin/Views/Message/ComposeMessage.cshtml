@@ -1,0 +1,106 @@
+﻿@model Message2
+@{
+	ViewData["Title"] = "ComposeMessage";
+	Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+
+	<div class="wrapper wrapper-content">
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="ibox ">
+					<div class="ibox-content mailbox-content">
+						<div class="file-manager">
+							<a class="btn btn-block btn-primary compose-mail" href="mail_compose.html">Mesaj qutusu</a>
+							<div class="space-25"></div>
+							<h5>Folders</h5>
+							<ul class="folder-list m-b-md" style="padding: 0">
+								<li><a href="/Admin/Message/Inbox"> <i class="fa fa-inbox "></i> Gələn mesajlar <span class="label label-warning float-right">16</span> </a></li>
+								<li><a href="/Admin/Message/SendBox"> <i class="fa fa-envelope-o"></i> Gedən mesajar </a></li>
+								<li><a href="mailbox.html"> <i class="fa fa-certificate"></i> Vacib mesajlar</a></li>
+								<li><a href="mailbox.html"> <i class="fa fa-file-text-o"></i> Drafts <span class="label label-danger float-right">2</span></a></li>
+								<li><a href="mailbox.html"> <i class="fa fa-trash-o"></i> Trash</a></li>
+							</ul>
+							<h5>Categories</h5>
+							<ul class="category-list" style="padding: 0">
+								<li><a href="#"> <i class="fa fa-circle text-navy"></i> Work </a></li>
+								<li><a href="#"> <i class="fa fa-circle text-danger"></i> Documents</a></li>
+								<li><a href="#"> <i class="fa fa-circle text-primary"></i> Social</a></li>
+								<li><a href="#"> <i class="fa fa-circle text-info"></i> Advertising</a></li>
+								<li><a href="#"> <i class="fa fa-circle text-warning"></i> Clients</a></li>
+							</ul>
+
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-9 animated fadeInRight">
+				<div class="mail-box-header">
+					<div class="float-right tooltip-demo">
+						<a href="mailbox.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to draft folder"><i class="fa fa-pencil"></i> Draft</a>
+						<a href="mailbox.html" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Discard email"><i class="fa fa-times"></i> Discard</a>
+					</div>
+					<h2>
+						Compse mail
+					</h2>
+				</div>
+				<div class="mail-box">
+
+
+					<div class="mail-body">
+
+						<form method="post">
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">Alıcı:</label>
+
+								<div class="col-sm-10"><input type="text" class="form-control"></div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">Mövzu:</label>
+
+								<div class="col-sm-10"><input type="text" class="form-control" value="" asp-for="@Model.Subject"></div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">Mesajınız:</label>
+
+								<div class="col-sm-10"><textarea rows="4" placeholder="Mesajınız yazın..." class="form-control" value="" asp-for="@Model.MessageDetails"></textarea></div>
+							</div>
+							<button class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-reply"></i> Send</button>
+						</form>
+
+					</div>
+
+
+					<div class="mail-body text-right tooltip-demo">
+
+						<a href="mailbox.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Discard email"><i class="fa fa-times"></i> Discard</a>
+						<a href="mailbox.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to draft folder"><i class="fa fa-pencil"></i> Draft</a>
+					</div>
+					<div class="clearfix"></div>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="float-right">
+			10GB of <strong>250GB</strong> Free.
+		</div>
+		<div>
+			<strong>Copyright</strong> Example Company &copy; 2014-2018
+		</div>
+	</div>
+
+
+
+</body>
+
+</html>
+
+

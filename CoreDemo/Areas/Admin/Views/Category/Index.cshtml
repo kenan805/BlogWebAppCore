@@ -35,4 +35,5 @@
 </table>
 <a href="/Admin/Category/AddCategory" class="btn btn-primary">Yeni kateqoriya</a>
 <br />
+<br />
 @Html.PagedListPager(Model, page=>Url.Action("Index", "Category", new { page }))

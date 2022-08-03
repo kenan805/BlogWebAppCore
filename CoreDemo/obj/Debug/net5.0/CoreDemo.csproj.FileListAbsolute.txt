@@ -236,3 +236,7 @@ C:\Users\user\source\repos\CoreDemo\CoreDemo\bin\Debug\net5.0\Microsoft.Extensio
 C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\RegisterUser\Index.cshtml.g.cs
 C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Message\SendMessage.cshtml.g.cs
 C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Views\Message\SendBox.cshtml.g.cs
+C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Message\Inbox.cshtml.g.cs
+C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Message\SendBox.cshtml.g.cs
+C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Message\ComposeMessage.cshtml.g.cs
+C:\Users\user\source\repos\CoreDemo\CoreDemo\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminBlog\Index.cshtml.g.cs
