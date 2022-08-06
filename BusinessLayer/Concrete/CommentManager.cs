@@ -28,6 +28,10 @@ namespace BusinessLayer.Concrete
 
         public List<Comment> GetAll(int id) => _commentDal.GetFilterAll(x => x.BlogID == id);
 
+        public List<Comment> GetCommentListWithBlog()
+        {
+            return _commentDal.GetListWithBlog();
+        }
 
         public void TAdd(Comment entity)
         {

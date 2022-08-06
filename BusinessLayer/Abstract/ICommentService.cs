@@ -10,9 +10,8 @@ namespace BusinessLayer.Abstract
     public interface ICommentService : IGenericService<Comment>
     {
         void CommentAdd(Comment comment);
-        //void BlogDelete(Blog comment);
-        //void BlogUpdate(Blog comment);
         List<Comment> GetAll(int id);
-        //Blog GetById(int id);
+        List<Comment> GetCommentListWithBlog();
+
     }
 }
