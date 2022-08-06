@@ -56,13 +56,20 @@ using X.PagedList.Mvc.Core;
 #nullable disable
 #nullable restore
 #line 7 "C:\Users\user\source\repos\CoreDemo\CoreDemo\Areas\Admin\Views\_ViewImports.cshtml"
+using CoreDemo.Areas.Admin;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\user\source\repos\CoreDemo\CoreDemo\Areas\Admin\Views\_ViewImports.cshtml"
 using CoreDemo.Areas.Admin.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"eef731b96170020c45ede6560b799f90c232c52e", @"/Areas/Admin/Views/AdminRole/UpdateRole.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"44015c5984c50bd58ce7c19d4129611ccb24137e", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b95247a32f69834c6276ba81f6992bf19fc08d6c", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Admin_Views_AdminRole_UpdateRole : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<RoleUpdateViewModel>
     #nullable disable
@@ -103,7 +110,7 @@ using CoreDemo.Areas.Admin.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<h1>Update Role</h1>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eef731b96170020c45ede6560b799f90c232c52e4928", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eef731b96170020c45ede6560b799f90c232c52e5120", async() => {
                 WriteLiteral("\r\n\t<div class=\"form-group\">\r\n\t\t<label>Rol ID</label>\r\n\t\t<input type=\"text\" name=\"Id\"");
                 BeginWriteAttribute("value", " value=\"", 259, "\"", 276, 1);
 #nullable restore

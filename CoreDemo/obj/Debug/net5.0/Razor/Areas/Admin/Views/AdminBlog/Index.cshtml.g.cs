@@ -56,13 +56,20 @@ using X.PagedList.Mvc.Core;
 #nullable disable
 #nullable restore
 #line 7 "C:\Users\user\source\repos\CoreDemo\CoreDemo\Areas\Admin\Views\_ViewImports.cshtml"
+using CoreDemo.Areas.Admin;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\user\source\repos\CoreDemo\CoreDemo\Areas\Admin\Views\_ViewImports.cshtml"
 using CoreDemo.Areas.Admin.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9328aeaf5d6e34df841f2412d68815348feff020", @"/Areas/Admin/Views/AdminBlog/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"44015c5984c50bd58ce7c19d4129611ccb24137e", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b95247a32f69834c6276ba81f6992bf19fc08d6c", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Admin_Views_AdminBlog_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Blog>>
     #nullable disable
@@ -101,7 +108,7 @@ using CoreDemo.Areas.Admin.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html>\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9328aeaf5d6e34df841f2412d68815348feff0204456", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9328aeaf5d6e34df841f2412d68815348feff0204648", async() => {
                 WriteLiteral("\r\n\r\n\t<div class=\"wrapper wrapper-content animated fadeInRight\">\r\n\t\t<div class=\"row\">\r\n");
 #nullable restore
 #line 14 "C:\Users\user\source\repos\CoreDemo\CoreDemo\Areas\Admin\Views\AdminBlog\Index.cshtml"

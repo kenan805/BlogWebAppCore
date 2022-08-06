@@ -56,13 +56,20 @@ using X.PagedList.Mvc.Core;
 #nullable disable
 #nullable restore
 #line 7 "C:\Users\user\source\repos\CoreDemo\CoreDemo\Areas\Admin\Views\_ViewImports.cshtml"
+using CoreDemo.Areas.Admin;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\user\source\repos\CoreDemo\CoreDemo\Areas\Admin\Views\_ViewImports.cshtml"
 using CoreDemo.Areas.Admin.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e17d8897595802b326d4b7d974128879a5a7c488", @"/Areas/Admin/Views/Message/Inbox.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"44015c5984c50bd58ce7c19d4129611ccb24137e", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b95247a32f69834c6276ba81f6992bf19fc08d6c", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Admin_Views_Message_Inbox : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Message2>>
     #nullable disable
@@ -106,7 +113,7 @@ using CoreDemo.Areas.Admin.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html>\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e17d8897595802b326d4b7d974128879a5a7c4885738", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e17d8897595802b326d4b7d974128879a5a7c4885930", async() => {
                 WriteLiteral(@"
 	<div class=""wrapper wrapper-content"">
 		<div class=""row"">
@@ -143,7 +150,7 @@ using CoreDemo.Areas.Admin.Models;
 				<div class=""mail-box-header"">
 
 					");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e17d8897595802b326d4b7d974128879a5a7c4887811", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e17d8897595802b326d4b7d974128879a5a7c4888003", async() => {
                     WriteLiteral(@"
 						<div class=""input-group"">
 							<input type=""text"" class=""form-control form-control-sm"" name=""search"" placeholder=""Search email"">
