@@ -97,7 +97,7 @@ namespace CoreDemo.Areas.Admin.Controllers
             var user = _userManager.Users.FirstOrDefault(x => x.Id == id);
             var roles = _roleManager.Roles.ToList();
 
-            TempData["Userid"] = user.Id;
+            TempData["UserId"] = user.Id;
 
             var userRoles = await _userManager.GetRolesAsync(user);
             List<RoleAssignViewModel> models = new();
@@ -109,9 +109,28 @@ namespace CoreDemo.Areas.Admin.Controllers
                 model.Exists = userRoles.Contains(item.Name);
                 models.Add(model);
             }
-
-
             return View(models);
+        }
+        [HttpPost]
+        public async Task<IActionResult> AssignRole(List<RoleAssignViewModel> models)
+        {
+            var userId = (int)TempData["UserId"];
+            var user = _userManager.Users.FirstOrDefault(x => x.Id == userId);
+            foreach (var item in models)
+            {
+                _ = (item.Exists) 
+                    ? await _userManager.AddToRoleAsync(user, item.Name) 
+                    : await _userManager.RemoveFromRoleAsync(user, item.Name);
+                //if (item.Exists)
+                //{
+                //    await _userManager.AddToRoleAsync(user, item.Name);
+                //}
+                //else
+                //{
+                //    await _userManager.RemoveFromRoleAsync(user, item.Name);
+                //}
+            }
+            return RedirectToAction("UserRoleList");
         }
     }
 }
